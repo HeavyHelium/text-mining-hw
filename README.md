@@ -45,6 +45,13 @@ python evaluate.py --pred_file="./outputs/predictions-val-eng-gemini-2.5-flash.j
 
 ![alt text](./img/eng.png)
 
+* for `2.5-flash-preview-04-17` with other OCR
+![alt text](./img/img-other-bg.png)
+
+```sh
+python evaluate.py --pred_file="./outputs/predictions-val-bg-gemini-2.5-flash-other-ocr.json" --gold_file="./answers/val/gold_file_bg.json" --print_score="True"
+```
+
 2. Bulgarian 
 * for `2.0-flash`, no OCR
 

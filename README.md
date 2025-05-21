@@ -46,7 +46,7 @@ python evaluate.py --pred_file="./outputs/predictions-val-eng-gemini-2.5-flash.j
 ![alt text](./img/eng.png)
 
 
-*  for 
+*  for `2.5-flash-preview-04-17` with other OCR 
 ![alt text](./img/image-en-other-ocr.png)
 ```sh
 python evaluate.py --pred_file="./outputs/predictions-val-en-gemini-2.5-flash-other-ocr.json" --gold_file="./answers/val/gold_file.json" --print_score="True" 

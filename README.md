@@ -77,6 +77,14 @@ python evaluate.py --pred_file="./outputs/predictions-val-bg-gemini-2.5-flash.js
 python evaluate.py --pred_file="./outputs/predictions-val-bg-gemini-2.5-flash-other-ocr.json" --gold_file="./answers/val/gold_file_bg.json" --print_score="True"
 ```
 
+* for `2.5-flash-preview-04-17` without OCR
+
+```sh
+ python evaluate.py --pred_file="./outputs/predictions-val-bg-gemini-2.5-flash-no-ocr.json" --gold_file="./answers/val/gold_file_bg.json" --print_score="True"
+```
+
+![alt text](./img/img-bg-no-ocr-2.5.png)
+
 💡 These outputs have been produced with the stricter prompt template.
 
 

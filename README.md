@@ -51,6 +51,7 @@ python evaluate.py --pred_file="./outputs/predictions-val-en-gemini-2.0-flash-oc
 ```
 ![alt text](./img/image-en-2.0-with-ocr.ong)
 
+
 *  for `2.5-flash-preview-04-17` with other OCR 
 ![alt text](./img/image-en-other-ocr.png)
 ```sh
@@ -89,6 +90,14 @@ python evaluate.py --pred_file="./outputs/predictions-val-bg-gemini-2.5-flash-ot
 ```
 
 ![alt text](./img/img-bg-no-ocr-2.5.png)
+
+*  for `2.0-flash` with other OCR  
+```sh
+python evaluate.py --pred_file="./outputs/predictions-val-bg-gemini-2-flash-other-ocr.json" --gold_file="./answers/val/gold_file_bg.json" --print_score="True"
+```
+![alt text](./img/image-bg-2-flash-other-ocr.png)
+
+
 
 💡 These outputs have been produced with the stricter prompt template.
 

@@ -128,7 +128,8 @@ class VisionLanguageModel:
     def _generate(self,
                   model: str,
                   contents: List[Any],
-                  thinking: bool = False) -> str:
+                  thinking: bool = False, 
+                  strip: bool = False) -> str:
         """
         Internal method to call the GenAI generate_content endpoint with rate limiting.
         """
@@ -142,7 +143,7 @@ class VisionLanguageModel:
                 contents=contents,
                 **params
             )
-            return response.text.strip()
+            return response.text.strip() if strip else response
         except Exception as e:
             print(f"Error in _generate: {e}")
             raise
@@ -153,7 +154,8 @@ class VisionLanguageModel:
                    pil_image: Image.Image,
                    model: str,
                    strict: bool = False,
-                   thinking: bool = True) -> Optional[str]:
+                   thinking: bool = True, 
+                   strip=True) -> Optional[str]:
         """
         Send prepared prompt and PIL image to the VLM and return its response.
         """
@@ -161,10 +163,12 @@ class VisionLanguageModel:
         # if strict:
         #     #print("Using strict prompt for get_answer")
         #     contents.append("Always respond with a single capital letter (A-E) without explanation.")
-        contents.extend([prompt, pil_image])
+        if pil_image is not None:
+            contents.extend([prompt, pil_image])
+        else:
+            contents.append(prompt)
         #print(f"Calling model {model} with prompt length {len(prompt)}")
-        return self._generate(model=model, contents=contents, thinking=thinking)
-
+        return self._generate(model=model, contents=contents, thinking=thinking, strip=strip)
 
 class DataUtils:
     """
